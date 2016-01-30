@@ -1,0 +1,36 @@
+consul:
+  image: fhalim/consul
+  ports:
+   - "8500:8500"
+   - "8600:8600/udp"
+eureka:
+  build: ./netflix-eureka
+  ports:
+    - "8761:8761"
+account:
+  build: ./netflix-account
+  links:
+   - eureka
+   - consul
+catalog:
+  build: ./netflix-catalog
+  links:
+   - eureka
+   - consul
+order:
+  build: ./netflix-order
+  links:
+   - eureka
+   - consul
+zuul:
+  build: ./netflix-zuul
+  links:
+   - eureka
+  ports:
+    - "8080:8080"
+turbine:
+  build: ./netflix-turbine
+  links:
+   - eureka
+  ports:
+    - "8989:8989"

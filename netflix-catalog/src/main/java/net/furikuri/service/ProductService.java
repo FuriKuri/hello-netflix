@@ -24,7 +24,7 @@ public class ProductService {
     private int delay = 0;
 
     public ProductService() {
-        final ConsulClient client = new ConsulClient("192.168.99.100");
+        final ConsulClient client = new ConsulClient("consul");
         final String rootPath = "catalog/config";
         final ConsulWatchedConfigurationSource configSource =
                 new ConsulWatchedConfigurationSource(rootPath, client);

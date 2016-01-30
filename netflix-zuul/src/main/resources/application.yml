@@ -10,7 +10,7 @@ eureka:
     healthCheckUrlPath: /health
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka:8761/eureka/
 logging:
   level:
     ROOT: INFO
