@@ -1,0 +1,18 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 5
+turbine:
+  aggregator:
+    clusterConfig: ORDER
+  appConfig: order
