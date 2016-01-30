@@ -1,0 +1,23 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: zuul
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: DEBUG
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 5000
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 2
