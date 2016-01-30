@@ -1,0 +1,6 @@
+include 'netflix-eureka'
+include 'netflix-zuul'
+include 'netflix-turbine'
+include 'netflix-account'
+include 'netflix-catalog'
+include 'netflix-order'
