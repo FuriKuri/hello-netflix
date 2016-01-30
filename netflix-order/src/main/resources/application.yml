@@ -1,0 +1,18 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: order
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    preferIpAddress: true
+    metadataMap:
+      instanceId: ${spring.application.name}:${random.value}
+
+hystrix.command.findAllProducts.execution.isolation.thread.timeoutInMilliseconds: 6000
+hystrix.command.findAllProducts.circuitBreaker.requestVolumeThreshold: 2
+hystrix.command.findAllProducts.circuitBreaker.enabled: true
