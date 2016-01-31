@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: zuul
+  cloud:
+    consul:
+      host: consul.furikuri.net
+      port: 8500
+      config:
+        enabled: true

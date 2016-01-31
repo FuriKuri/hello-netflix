@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: turbine
+  cloud:
+    consul:
+      host: consul.furikuri.net
+      port: 8500
+      config:
+        enabled: true

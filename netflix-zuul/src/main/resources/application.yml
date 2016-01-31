@@ -1,8 +1,5 @@
 server:
   port: 8080
-spring:
-  application:
-    name: zuul
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10

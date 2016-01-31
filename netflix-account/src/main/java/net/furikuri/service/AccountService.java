@@ -10,7 +10,10 @@ import com.netflix.config.DynamicWatchedConfiguration;
 import net.furikuri.domain.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.PostConstruct;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,9 +25,13 @@ public class AccountService {
 
     private int delay = 0;
 
-    public AccountService() {
-        final ConsulClient client = new ConsulClient("consul");
-        final String rootPath = "account/config";
+    @Value("${spring.cloud.consul.host}")
+    private String consul;
+
+    @PostConstruct
+    public void init() {
+        final ConsulClient client = new ConsulClient(consul);
+        final String rootPath = "config/account";
         final ConsulWatchedConfigurationSource configSource =
                 new ConsulWatchedConfigurationSource(rootPath, client);
         configSource.startAsync();
