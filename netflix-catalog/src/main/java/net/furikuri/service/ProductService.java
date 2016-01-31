@@ -10,7 +10,9 @@ import com.netflix.config.DynamicWatchedConfiguration;
 import net.furikuri.domain.Product;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -28,6 +30,9 @@ public class ProductService {
 
     @Value("${spring.cloud.consul.host}")
     private String consul;
+
+    @Autowired
+    private CounterService counterService;
 
     @PostConstruct
     public void init() {
@@ -52,6 +57,7 @@ public class ProductService {
     }
 
     public List<Product> getAll() {
+        counterService.increment("counter.calls.get_all");
         try {
             Thread.sleep(TimeUnit.SECONDS.toMillis(delay));
         } catch (InterruptedException e) {

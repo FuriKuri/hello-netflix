@@ -10,7 +10,9 @@ import com.netflix.config.DynamicWatchedConfiguration;
 import net.furikuri.domain.Account;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -27,6 +29,9 @@ public class AccountService {
 
     @Value("${spring.cloud.consul.host}")
     private String consul;
+
+    @Autowired
+    private CounterService counterService;
 
     @PostConstruct
     public void init() {
@@ -51,12 +56,12 @@ public class AccountService {
     }
 
     public List<Account> getAll() {
+        counterService.increment("counter.calls.get_all");
         try {
             Thread.sleep(TimeUnit.SECONDS.toMillis(delay));
         } catch (InterruptedException e) {
             logger.error("Error: ", e);
         }
-
         return Arrays.asList(
                 new Account("theo@mail.de", "Pack", "Theo"),
                 new Account("hans@mail.de", "Müller", "Hans"));
