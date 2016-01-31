@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Processing</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/account">Account-Service</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/catalog">Catalog-Service</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/order/account">Order-Service: Account</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/order/product">Order-Service: Product</a>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/" onclick="javascript:event.target.port=8761">Eureka</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <a href="/turbine/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8989%2Fturbine.stream%3Fcluster%3DORDER">Hystrix dashboard</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
