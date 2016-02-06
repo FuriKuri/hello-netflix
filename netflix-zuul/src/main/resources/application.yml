@@ -2,6 +2,7 @@ server:
   port: 8080
 eureka:
   instance:
+    preferIpAddress: false
     leaseRenewalIntervalInSeconds: 10
     statusPageUrlPath: /info
     healthCheckUrlPath: /health
