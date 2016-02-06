@@ -31,7 +31,7 @@ public class NetflixEurekaApplication {
 
 	@PostConstruct
 	public void sendToConsul() throws IOException {
-        final String tutumContainerFqdn = System.getenv("TUTUM_CONTAINER_FQDN");
+        final String tutumContainerFqdn = System.getenv("TUTUM_SERVICE_FQDN");
         logger.info("Set Eureka configuration in Consul. FQDN: {}, HOST: {}, PORT: {}",
                 tutumContainerFqdn, consulHost, consulPort);
         new RestTemplate(clientHttpRequestFactory()).put("http://" + consulHost + ":" + consulPort +
