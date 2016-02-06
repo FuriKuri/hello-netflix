@@ -3,7 +3,7 @@ spring:
     name: zuul
   cloud:
     consul:
-      host: consul.furikuri.net
+      host: consul.furikuri.svc.tutum.io
       port: 8500
       config:
         enabled: true
