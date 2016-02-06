@@ -1,4 +1,4 @@
 FROM java:8
 ADD build/libs/netflix-turbine-0.0.1-SNAPSHOT.jar .
-CMD java -jar netflix-turbine-0.0.1-SNAPSHOT.jar -Djava.security.egd=file:/dev/./urandom
+CMD java -Djava.security.egd=file:/dev/./urandom -jar netflix-turbine-0.0.1-SNAPSHOT.jar
 EXPOSE 8989
