@@ -6,6 +6,6 @@ eureka:
       defaultZone: http://eureka:8761/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 5
-    preferIpAddress: false
+    preferIpAddress: true
     metadataMap:
       instanceId: ${spring.application.name}:${random.value}

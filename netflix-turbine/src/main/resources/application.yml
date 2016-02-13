@@ -7,7 +7,7 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
   instance:
-    preferIpAddress: false
+    preferIpAddress: true
     leaseRenewalIntervalInSeconds: 5
 turbine:
   aggregator:
